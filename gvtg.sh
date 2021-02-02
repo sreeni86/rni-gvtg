@@ -5,12 +5,10 @@ cwd=$(pwd)
 work_dir=data/srv/tftp/images/${name}
 kdir="kernel"
 krevision="3.0"
-kversion="vt-sharing-ubuntu"
+kversion="intelgvt"
 repo="https://github.com/intel/linux-intel-lts"
-branch="5.4/yocto"
-#tag="lts-v5.4.81-yocto-201210T224912Z"
-tag="e00ce2dbe204df8675b04a820f6a4e6fc0f784b1"
-srcrev="e00ce2dbe204df8675b04a820f6a4e6fc0f784b1"
+#branch="5.4/idv_dev"
+tag="lts-v5.4.81-yocto-201210T224912Z"
 kernel_config_url="https://kernel.ubuntu.com/~kernel-ppa/config/focal/linux/5.4.0-44.48/amd64-config.flavour.generic"
 qemu_rel=qemu-4.2.0
 qemu_dir=${qemu_rel}
@@ -73,7 +71,7 @@ function build_qemu() {
 }
 
 function pull_kernel() {
-  [[ ! -d "$work_dir/$kdir" ]] && git clone $repo --branch $branch --single-branch $work_dir/$kdir && cd $work_dir/$kdir; git checkout $srcrev
+  [[ ! -d "$work_dir/$kdir" ]] && git clone --depth 1 $repo -b $tag --single-branch $work_dir/$kdir
 }
 
 function kernel_config() {

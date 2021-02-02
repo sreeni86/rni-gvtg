@@ -9,7 +9,7 @@ set -a
 source /opt/bootstrap/functions
 
 # --- Config
-KERNEL_VER="5.4.81-intelgvt_3.0"
+KERNEL_VER="5.4.91-intelgvt_3.0"
 ubuntu_bundles="ubuntu-desktop openssh-server"
 ubuntu_packages="net-tools vim software-properties-common apt-transport-https wget libspice-server-dev libsdl2-2.0-0 libaio-dev"
 
